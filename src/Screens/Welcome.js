@@ -2,13 +2,14 @@ import React from 'react';
 
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-const Logo = require('../Assets/images/Logo.png');
+import images from '../Constants/image'
+// const Logo = require('../Assets/images/Logo.png');
 
 export default function WelcomeScreen() {
     return(
         <View style={styles.sectionContainer}>
             <View style={styles.logoContainer}>
-                <Image source={Logo} style={styles.logoImg}/>
+                <Image source={images.Logo} style={styles.logoImg}/>
             </View>
         </View>
     );

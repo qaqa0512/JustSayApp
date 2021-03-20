@@ -9,7 +9,10 @@
    useColorScheme,
    View,
  } from 'react-native';
- import {Home, Welcome} from './Screens/index';
+
+ import Tabs from './Navigation/Tabs';
+
+ import {Home, Welcome, Setting} from './Screens/index';
 
  import { NavigationContainer } from '@react-navigation/native';
 
@@ -36,9 +39,9 @@
       >
         {
           isSplash ? 
-        <Stack.Screen name = "Welcome" component={Welcome}/>
-        :
-        <Stack.Screen name = "Home" component={Home}/>
+          <Stack.Screen name = "Welcome" component={Welcome}/>
+          :
+          <Stack.Screen name = "Home" component={Tabs}/>
         }
       </Stack.Navigator>
     </NavigationContainer>

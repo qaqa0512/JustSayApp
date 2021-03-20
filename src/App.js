@@ -9,15 +9,13 @@
    useColorScheme,
    View,
  } from 'react-native';
+ import {Home, Welcome} from './Screens/index';
 
  import { NavigationContainer } from '@react-navigation/native';
 
- import WelcomeScreen from './Screens/Welcome';
- import HomeScreen from './Screens/HomeScreen/Home';
-
-import DrrawerApp from './Route/Drawer'
  import { createStackNavigator } from '@react-navigation/stack';
-import { useState } from 'react';
+ 
+ import { useState } from 'react';
 
  const Stack = createStackNavigator();
 
@@ -25,7 +23,8 @@ import { useState } from 'react';
    const [isSplash , setIsSplash] = useState(true);
    setTimeout(()=>{
       setIsSplash(false)
-   },2000)
+   },3000);
+
    return (
     <NavigationContainer>
       <Stack.Navigator
@@ -37,22 +36,14 @@ import { useState } from 'react';
       >
         {
           isSplash ? 
-        <Stack.Screen name = "Welcome" component={WelcomeScreen}/>
-          :
-        <Stack.Screen name = "Home" component={DrrawerApp}/>
+        <Stack.Screen name = "Welcome" component={Welcome}/>
+        :
+        <Stack.Screen name = "Home" component={Home}/>
         }
       </Stack.Navigator>
     </NavigationContainer>
    );
  };
- 
- const styles = StyleSheet.create({
-   sectionContainer: {
-     flex:1,
-     justifyContent:'center',
-     alignItems:'center',
-   },
- });
  
  export default App;
  

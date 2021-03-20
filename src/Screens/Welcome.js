@@ -2,7 +2,7 @@ import React from 'react';
 
 import {View, Text, StyleSheet, Image} from 'react-native';
 
-const Logo = require('../../Assets/images/Logo.png');
+const Logo = require('../Assets/images/Logo.png');
 
 export default function WelcomeScreen() {
     return(

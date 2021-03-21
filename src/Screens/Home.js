@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert} from 'react-native';
+import {View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert, ScrollView} from 'react-native';
 
 import Icons from 'react-native-vector-icons/FontAwesome'
 import Guide from 'react-native-vector-icons/Feather'
@@ -8,7 +8,9 @@ import Other from 'react-native-vector-icons/Foundation'
 
 import {Picker} from '@react-native-picker/picker';
 
-import images from '../Constants/image'
+import images from '../Constants/image';
+
+import TranslateScreen from '../Components/Translate';
 
 export default function HomeScreen() {
 
@@ -84,17 +86,20 @@ export default function HomeScreen() {
                 </View>
                 <View style={styles.conservationContainer}>
                     {/*  */}
+                    
                     <View style={styles.displayContainer}>
-                        {/*  */}
-                        <View style={styles.titleContainer}>
-                            <Text>Việt</Text>
-                            <Text style={{marginHorizontal:5}}>-</Text>
-                            <Text>Anh</Text>
-                        </View>
-                        {/*  */}
-                        <View style={styles.translateContainer}>
-                            
-                        </View>
+                        <ScrollView>
+                            {/*  */}
+                            <View style={styles.titleContainer}>
+                                <Text>Việt</Text>
+                                <Text style={{marginHorizontal:5}}>-</Text>
+                                <Text>Anh</Text>
+                            </View>
+                            {/*  */}
+                            <TranslateScreen/>
+                            <TranslateScreen/>
+                            <TranslateScreen/>
+                        </ScrollView>
                     </View>
                 </View>
             </View>

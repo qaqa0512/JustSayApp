@@ -17,15 +17,15 @@ export default function HomeScreen() {
     const [selectedValue, setSelectedValue] = useState("Việt");
 
     const clear = () => {
-        Alert.alert("Your conservation is cleared!")
+        Alert.alert("Your conservation is cleared!");
     };
 
     const info = () => {
-        Alert.alert("Hello friend!")
+        Alert.alert("About Me");
     };
 
     const record = () => {
-        Alert.alert("I'm hearing")
+        Alert.alert("I'm hearing");
     };
     
 

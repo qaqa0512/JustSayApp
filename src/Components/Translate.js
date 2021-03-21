@@ -11,23 +11,29 @@ import {
 } from 'react-native';
 
 export default function TranslateScreen() { 
+
+    const repeat = () => {
+        Alert.alert("Hello friend!")
+    };
+
     return(
         <View style={styles.translateContainer}>
             <View style={styles.translateContainerLeft}>
-                <View style={styles.translateLanguage}>
+                <TouchableOpacity onPress={repeat}style={styles.translateLanguage}>
                     <Text>Xin chào!</Text>
-                </View>
-                <View style={styles.translateOther}>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={repeat}style={styles.translateOther}>
                     <Text>Hi!</Text>
-                </View>
+                </TouchableOpacity>
+
             </View>
             <View style={styles.translateContainerRight}>
-                <View style={styles.translateLanguageRight}>
-                    <Text>How are you?</Text>
-                </View>
-                <View style={styles.translateOtherRight}>
-                    <Text style={{color:'#fff',fontWeight:'600',}}>Bạn có khỏe không? </Text>
-                </View>
+                <TouchableOpacity onPress={repeat}style={styles.translateLanguageRight}>
+                    <Text>Hello!</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={repeat}style={styles.translateOtherRight}>
+                    <Text>Xin chào!</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

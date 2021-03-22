@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
-import {View, Text, StyleSheet, Image, Button, TouchableOpacity, Alert, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity, Alert, ScrollView} from 'react-native';
+import Modal from 'react-native-modal'
+
 
 import Icons from 'react-native-vector-icons/FontAwesome'
 import Guide from 'react-native-vector-icons/Feather'
@@ -13,6 +15,8 @@ import images from '../Constants/image';
 import TranslateScreen from '../Components/Translate';
 
 export default function HomeScreen() {
+
+    const [modalOpen, setModalOpen] = useState(false);
 
     const [selectedValue, setSelectedValue] = useState("Việt");
 
@@ -37,10 +41,33 @@ export default function HomeScreen() {
                     <View style={styles.headerTxtBox}>
                         <Image source={images.Logo} style={styles.logoHomeImg}/>
                     </View>
-                    <TouchableOpacity onPress={info} style={styles.IconClick}>
+                    <TouchableOpacity 
+                        onPress={() => setModalOpen(true)} 
+                        style={styles.IconClick} 
+                        activeOpacity={0.6}
+                    >
                         <Guide name="info" size={26} style={styles.infoIcon}/>
+                        <Modal isVisible={modalOpen} animationType="slide">
+                            <View style={styles.modalContainer}>
+                                <Icons 
+                                    name="window-close" 
+                                    size={26} 
+                                    style={styles.modalIcon}
+                                    onPress={() => setModalOpen(false)}
+                                />
+                                <Text style={styles.modalTitle}>Just Say có những gì?</Text>
+                                <View style={styles.modalContext}>
+                                    <View style={styles.modalImgContainer}>
+                                        <Image source={images.Logo} style={styles.modalImg}/>
+                                    </View>
+                                    <Text style={styles.modalTxt}>---- Xóa bỏ đi rào cản ngôn ngữ ----</Text>
+                                    <Text style={styles.modalTxt}>---- Tôi hiểu bạn và bạn cũng hiểu tôi ----</Text>
+                                    <Text style={styles.modalTxt}>Cảm ơn bạn sử dụng phần mềm của chúng tôi</Text>
+                                </View>
+                            </View>
+                        </Modal>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={clear}>
+                    <TouchableOpacity onPress={clear} activeOpacity={0.8}>
                         <Icons name="trash" size={26} style={styles.headerIcon}/>
                     </TouchableOpacity>
                 </View>
@@ -50,15 +77,15 @@ export default function HomeScreen() {
             <View style={styles.bodyContainer}>
                 <View style={styles.recordContainer} >
                     <View>
-                        <TouchableOpacity onPress={record} style={styles.recordIcon}>
+                        <TouchableOpacity onPress={record} style={styles.recordIcon} activeOpacity={0.8}>
                             <Other name="microphone" size={35} color="#fff"/>
                         </TouchableOpacity>
-                        {/* <Text style={styles.txtTranslate}>Việt</Text> */}
                     </View>
                     <View style={{marginBottom:30}} >
                         <Picker
                             selectedValue={selectedValue}
                             style={{ height: 50, width: 110,}}
+                            activeOpacity={0.6}
                             onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                         >
                             <Picker.Item label="Việt" value="vie" />
@@ -69,7 +96,7 @@ export default function HomeScreen() {
                     </View>
 
                     <View>
-                        <TouchableOpacity onPress={record} style={styles.reverseIcon}>
+                        <TouchableOpacity onPress={record} style={styles.reverseIcon} activeOpacity={0.8}>
                             <Other name="microphone" size={35} color="#fff"/>
                         </TouchableOpacity>
                     </View>
@@ -115,7 +142,7 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:'#FFDCBA',
         backgroundColor: '#FFDCBA',
-        paddingVertical:15,
+        paddingVertical:10,
         shadowColor: 'black',
         shadowOpacity: 0.3,
         shadowOffset: { width: 0, height: 7},
@@ -124,7 +151,7 @@ const styles = StyleSheet.create({
     },
     headerMain: {
         flexDirection:'row',
-        paddingHorizontal:22,
+        paddingHorizontal:20,
     },
     headerTxtBox: {
         alignItems:'center',
@@ -145,7 +172,7 @@ const styles = StyleSheet.create({
         marginLeft:7,
     },
     IconClick:{
-        marginLeft:200,
+        marginLeft:160,
         flexDirection:'row',
     },
     infoIcon:{
@@ -165,21 +192,68 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         elevation: 20,
     },
+    modalContainer:{
+        flex:1,
+        backgroundColor:'#FFE8D2',
+        borderRadius:20,
+        paddingHorizontal:20,
+        paddingVertical:20,  
+    },
+    modalTitle:{
+        fontSize:20,
+        fontWeight:'600',
+        textAlign:'center',
+        textTransform:'capitalize',
+        backgroundColor:'#fff',
+        marginTop:10,
+        borderRadius:10,
+    },
+    modalIcon:{
+        color:'#fff',
+    },
+    modalImgContainer:{
+        marginBottom:50,
+    },
+    modalImg:{
+        width:250,
+        height:100,
+        resizeMode:'cover',
+    },
+    modalContext:{
+        flex:1,
+        backgroundColor:'#fff',
+        marginTop:10,
+        borderRadius:10,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    modalTxt:{
+        paddingHorizontal:20,
+        paddingVertical:20,
+        textAlign:'center',
+    },
     // Body Container
     bodyContainer:
     {
         flex:1,
         flexDirection:'row',
+        backgroundColor:'#fff',
+        
     },
     // ------------------
     recordContainer:{
         alignItems:'center',
         justifyContent:'center',
         paddingTop:35,
-        marginHorizontal:10,
         marginVertical:10,
-        backgroundColor:'#fff',
+        marginLeft:7,
+        backgroundColor: "aliceblue",
         borderRadius:10,
+        shadowColor: '#2a2a2a',
+        shadowOpacity: 0.3,
+        shadowOffset: { width: 0, height: 7},
+        shadowRadius: 10,
+        elevation: 3,
     },
     recordIcon:{
         borderWidth:1,
@@ -209,13 +283,17 @@ const styles = StyleSheet.create({
         flex:1,
         paddingHorizontal:8,
         paddingVertical:10,
-        
     },
     //---------------------
     displayContainer:{
-        backgroundColor:'#fff',
+        backgroundColor: "aliceblue",
         flex:1,
         borderRadius:10,
+        shadowColor: 'black',
+        shadowOpacity: 0.3,
+        shadowOffset: { width: 0, height: 7},
+        shadowRadius: 10,
+        elevation: 20,
     },
     //---------------------
     titleContainer:{

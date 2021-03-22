@@ -19,19 +19,19 @@ export default function TranslateScreen() {
     return(
         <View style={styles.translateContainer}>
             <View style={styles.translateContainerLeft}>
-                <TouchableOpacity onPress={repeat}style={styles.translateLanguage}>
+                <TouchableOpacity onPress={repeat}style={styles.translateLanguage} activeOpacity={0.8}>
                     <Text>Xin chào!</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={repeat}style={styles.translateOther}>
+                <TouchableOpacity onPress={repeat}style={styles.translateOther} activeOpacity={0.8}>
                     <Text>Hi!</Text>
                 </TouchableOpacity>
 
             </View>
             <View style={styles.translateContainerRight}>
-                <TouchableOpacity onPress={repeat}style={styles.translateLanguageRight}>
+                <TouchableOpacity onPress={repeat}style={styles.translateLanguageRight} activeOpacity={0.8}>
                     <Text>Hello!</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={repeat}style={styles.translateOtherRight}>
+                <TouchableOpacity onPress={repeat}style={styles.translateOtherRight} activeOpacity={0.8}>
                     <Text>Xin chào!</Text>
                 </TouchableOpacity>
             </View>

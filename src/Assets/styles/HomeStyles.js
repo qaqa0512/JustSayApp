@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     sectionContainer: {
         flex:1,
     },
+    // Header
     headerContainer: {
         borderWidth:1,
         borderColor:'#FFDCBA',
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     },
     headerMain: {
         flexDirection:'row',
-        paddingHorizontal:20,
+        paddingHorizontal:6,
     },
     headerTxtBox: {
         alignItems:'center',
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         marginLeft:7,
     },
     IconClick:{
-        marginLeft:160,
+        marginLeft:177,
         flexDirection:'row',
     },
     infoIcon:{
@@ -99,36 +100,39 @@ const styles = StyleSheet.create({
         paddingVertical:20,
         textAlign:'center',
     },
+    pickerContainer:{
+        width:110,
+        height:50,
+        color:'#F8C491',
+    },
     // Body Container
     bodyContainer:
     {
         flex:1,
-        flexDirection:'row',
         backgroundColor:'#fff',
-        
     },
     // ------------------
     recordContainer:{
         alignItems:'center',
         justifyContent:'center',
-        paddingTop:35,
-        marginVertical:10,
-        marginLeft:7,
-        backgroundColor: "aliceblue",
+        backgroundColor: "transparent",
         borderRadius:10,
         shadowColor: '#2a2a2a',
         shadowOpacity: 0.3,
         shadowOffset: { width: 0, height: 7},
         shadowRadius: 10,
         elevation: 3,
+        flex:1,
+        flexDirection:'row',
     },
     recordIcon:{
         borderWidth:1,
         borderColor:'#F8C491',
-        paddingHorizontal:25,
+        paddingHorizontal:20,
         paddingVertical:7,
-        borderRadius:10,
+        borderRadius:30,
         backgroundColor:'#FFDCBA',
+        
     },
     txtTranslate:{
         textAlign:'center',
@@ -139,21 +143,21 @@ const styles = StyleSheet.create({
     reverseIcon:{
         borderWidth:1,
         borderColor:'#3DD4CB',
-        paddingHorizontal:25,
+        paddingHorizontal:20,
         paddingVertical:7,
-        borderRadius:10,
+        borderRadius:30,
         backgroundColor:'#3DD4CB',
     },
 
     // ConservationContainer
     conservationContainer:{
-        flex:1,
+        flex:5,
         paddingHorizontal:8,
         paddingVertical:10,
     },
     //---------------------
     displayContainer:{
-        backgroundColor: "aliceblue",
+        backgroundColor: "#fff",
         flex:1,
         borderRadius:10,
         shadowColor: 'black',
@@ -220,6 +224,5 @@ const styles = StyleSheet.create({
         alignSelf:"flex-end",
     },
   });
-
 
   export default styles

@@ -4,7 +4,7 @@ import Animated from 'react-native-reanimated';
 import { View, Text, Image} from 'react-native';
 
 // Styles
-import {StylesDrawer} from '../Assets/styles'
+import {StylesDrawer} from '../assets/styles'
 //Constants
 import images from '../Constants/image';
 

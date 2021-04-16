@@ -3,7 +3,6 @@ import React from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 
 import images from '../Constants/image'
-// const Logo = require('../Assets/images/Logo.png');
 
 export default function WelcomeScreen() {
     return(

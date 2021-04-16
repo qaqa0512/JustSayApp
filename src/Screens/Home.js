@@ -7,7 +7,7 @@ import Header from '../Components/Header';
 import TranslateScreen from '../Components/Translate';
 
 // Styles
-import {StylesHome} from '../Assets/styles'
+import {StylesHome} from '../assets/styles'
 
 export default function HomeScreen() {    
     return(

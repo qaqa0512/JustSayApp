@@ -8,15 +8,21 @@ import {
     Alert, 
     ScrollView
 } from 'react-native';
+
 // Import Style
-import {StylesHome} from '../Assets/styles';
+import {StylesHome} from '../assets/styles';
+
 // Import Voice Lib
 import Voice from 'react-native-voice';
+
 // Import Icons
 import Icons from 'react-native-vector-icons/FontAwesome'
 import Guide from 'react-native-vector-icons/Feather'
 import Other from 'react-native-vector-icons/Foundation'
 import {Picker} from '@react-native-picker/picker';
+
+//Constants
+import images from '../Constants/image';
 
 export default function TranslateScreen() { 
 
@@ -56,43 +62,24 @@ export default function TranslateScreen() {
                     </ScrollView>
                 </View>
             </View>
+            {/* Record Container */}
             <View style={StylesHome.recordContainer} >
-                <View>
+                <View style={StylesHome.recordBox}>
                     <TouchableOpacity style={StylesHome.recordIcon} activeOpacity={0.8}>
-                        <Other name="microphone" size={35} color="#fff"/>
+                        <Image source={images.Vie} style={StylesHome.FlagIcon}/>
                     </TouchableOpacity>
                 </View>
-                <View>
-                    <Picker
-                        selectedValue={selectedValue}
-                        style={StylesHome.pickerContainer}
-                        activeOpacity={0.6}
-                        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
-                    >
-                        <Picker.Item label="Việt" value="vie"/>
-                        <Picker.Item label="Anh" value="en" />
-                        <Picker.Item label="Hàn" value="korea" />
-                        <Picker.Item label="Pháp" value="france" />
-                    </Picker>
-                </View>
-
-                <View>
-                    <TouchableOpacity style={StylesHome.reverseIcon} activeOpacity={0.8}>
-                        <Other name="microphone" size={35} color="#fff"/>
+                <View style={StylesHome.recordExchange}>
+                    <TouchableOpacity style={StylesHome.recordExchangeIcon}>
+                        <Icons name="exchange" size={35} color="#38485F"/>
                     </TouchableOpacity>
                 </View>
-                <View>
-                    <Picker
-                        style={{ height: 50, width: 110, color:'#3DD4CB'}}
-                    >
-                        <Picker.Item label="Anh" value="en" />
-                        <Picker.Item label="Việt" value="vie" />
-                        <Picker.Item label="Hàn" value="korea" />
-                        <Picker.Item label="Pháp" value="france" />
-                    </Picker>
+                <View style={StylesHome.recordBox}>
+                    <TouchableOpacity style={StylesHome.recordIcon} activeOpacity={0.8}>
+                        <Image source={images.US} style={StylesHome.FlagIcon}/>
+                    </TouchableOpacity>
                 </View>
             </View>
-            
         </View>
     );
 };

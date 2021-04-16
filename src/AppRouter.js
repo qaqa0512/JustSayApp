@@ -29,23 +29,28 @@ const AppRouter = () => {
   },3000);
 
   return ( 
-   <NavigationContainer>
-     <Stack.Navigator
-       screenOptions = {{
-         headerStyle: {backgroundColor:'wheat'},
-         headerShown: false,
-       }}
-       initialRouteName="Welcome"
-     >
-       {
-         isSplash ? 
-         <Stack.Screen name = "Welcome" component={Welcome}/>
-         :
-         <Stack.Screen name = "Home" component={AppDrawer}/>
-       }
-     </Stack.Navigator>
-     {/* <AppDrawer/> */}
-   </NavigationContainer>
+  
+    <NavigationContainer>
+      <StatusBar 
+        backgroundColor = "#FFDCBA"
+        barStyle = "dark-content"
+      />
+      <Stack.Navigator
+        screenOptions = {{
+          headerStyle: {backgroundColor:'wheat'},
+          headerShown: false,
+        }}
+        initialRouteName="Welcome"
+      >
+        {
+          isSplash ? 
+          <Stack.Screen name = "Welcome" component={Welcome}/>
+          :
+          <Stack.Screen name = "Home" component={AppDrawer}/>
+        }
+      </Stack.Navigator>
+      {/* <AppDrawer/> */}
+    </NavigationContainer>
   );
 };
 

@@ -15,18 +15,28 @@ import {StylesHome} from '../assets/styles';
 // Import Voice Lib
 import Voice from 'react-native-voice';
 
+import Modal from 'react-native-modal';
+
 // Import Icons
 import Icons from 'react-native-vector-icons/FontAwesome'
 import Guide from 'react-native-vector-icons/Feather'
 import Other from 'react-native-vector-icons/Foundation'
 import {Picker} from '@react-native-picker/picker';
 
+import ModalPicker from '../Components/ModalPicker';
+
 //Constants
 import images from '../Constants/image';
 
 export default function TranslateScreen() { 
 
-    const[selectedValue,setSelectedValue] = useState("Việt");
+    const[chooseLanguage,setChooseLanguage] = useState(images.Vie);
+    const[chooseOtherLanguage,setChooseOtherLanguage] = useState(images.US);
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const showModal = () => setModalOpen(true);
+    const hideModal = () => setModalOpen(false);
 
     return(
         <View style={StylesHome.bodyContainer}>
@@ -65,18 +75,30 @@ export default function TranslateScreen() {
             {/* Record Container */}
             <View style={StylesHome.recordContainer} >
                 <View style={StylesHome.recordBox}>
-                    <TouchableOpacity style={StylesHome.recordIcon} activeOpacity={0.8}>
-                        <Image source={images.Vie} style={StylesHome.FlagIcon}/>
+                    <TouchableOpacity 
+                        style={StylesHome.recordIcon} 
+                        onPress={showModal}
+                        onPressOut={hideModal} 
+                    >
+                            <Image source={chooseLanguage} style={StylesHome.FlagIcon}/>
                     </TouchableOpacity>
                 </View>
+                <Modal 
+                    isVisible={modalOpen} 
+                    animationIn="flipInY"
+                    onBackdropPress={hideModal}
+                    animationOut="flipOutY"
+                >
+                    <ModalPicker/>
+                </Modal>
                 <View style={StylesHome.recordExchange}>
                     <TouchableOpacity style={StylesHome.recordExchangeIcon}>
                         <Icons name="exchange" size={35} color="#38485F"/>
                     </TouchableOpacity>
                 </View>
                 <View style={StylesHome.recordBox}>
-                    <TouchableOpacity style={StylesHome.recordIcon} activeOpacity={0.8}>
-                        <Image source={images.US} style={StylesHome.FlagIcon}/>
+                    <TouchableOpacity style={StylesHome.recordIcon}>
+                        <Image source={chooseOtherLanguage} style={StylesHome.FlagIcon}/>
                     </TouchableOpacity>
                 </View>
             </View>

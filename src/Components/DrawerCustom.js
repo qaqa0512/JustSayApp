@@ -8,9 +8,11 @@ import {StylesDrawer} from '../assets/styles'
 //Constants
 import images from '../Constants/image';
 
-import Icons from 'react-native-vector-icons/FontAwesome'
-import Guide from 'react-native-vector-icons/Feather'
-import Other from 'react-native-vector-icons/Foundation'
+import Icons from 'react-native-vector-icons/FontAwesome';
+import Guide from 'react-native-vector-icons/Feather';
+import Other from 'react-native-vector-icons/Foundation';
+import Ant from 'react-native-vector-icons/AntDesign';
+import Evil from 'react-native-vector-icons/EvilIcons';
 
 export default function SideBar({progress, ...props}) {
     const transX = Animated.interpolateNode(progress,{
@@ -29,22 +31,24 @@ export default function SideBar({progress, ...props}) {
                 <Animated.View style = {{transform: [{translateX: transX}]}}>
                     <DrawerItem
                         label="Trang chủ"
-                        icon = {({color,size}) => (
-                            <Icons
+                        labelStyle={{color:'#47167D'}}
+                        icon = {() => (
+                            <Ant
                                 name="home"
-                                color={color}
-                                size={size}
+                                color = "#47167D"
+                                size = {20}
                             />
                         )}
-                        onPress={()=> props.navigation.navigate('Home')}
+                        onPress={()=> props.navigation.navigate('Home',{data: 'aaa'})}
                     />
                     <DrawerItem
                         label="Cài đặt"
-                        icon = {({color,size}) => (
-                            <Icons
+                        labelStyle={{color:'#47167D'}}
+                        icon = {() => (
+                            <Evil
                                 name="gear"
-                                color={color}
-                                size={size}
+                                color = "#47167D"
+                                size = {20}
                             />
                         )}
                         onPress={()=> props.navigation.navigate('Setting')}
